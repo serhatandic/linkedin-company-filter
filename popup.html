@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				width: 300px;
+				padding: 10px;
+			}
+			#keywords {
+				margin-top: 10px;
+			}
+			.keyword-item {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 5px;
+			}
+			.remove-btn {
+				cursor: pointer;
+				color: red;
+				font-weight: bold;
+				padding: 0 5px;
+			}
+			#stats {
+				margin-top: 10px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="keyword" placeholder="Enter company name" />
+		<button id="addKeyword">Blacklist</button>
+		<div id="keywords"></div>
+		<div id="stats"></div>
+		<script src="popup.js"></script>
+	</body>
+</html>
