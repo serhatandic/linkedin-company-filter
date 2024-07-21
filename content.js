@@ -12,14 +12,23 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 function removeItems() {
 	let removedThisRun = 0;
+
 	function remove() {
 		let removed = false;
 		document.querySelectorAll('li').forEach((li) => {
-			if (keywords.some((keyword) => li.textContent.includes(keyword))) {
-				li.remove();
-				removed = true;
-				removedThisRun++;
-			}
+			li.querySelectorAll(
+				'span.job-card-container__primary-description'
+			).forEach((span) => {
+				if (
+					keywords.some(
+						(keyword) => span.textContent.trim() === keyword
+					)
+				) {
+					li.remove();
+					removed = true;
+					removedThisRun++;
+				}
+			});
 		});
 		if (removed) {
 			remove(); // Recurse to catch any newly exposed elements
